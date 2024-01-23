@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display&family=Roboto&display=swap');
+
+:root{
+  --bg-color : #DAB284;
+  --sand: #AD764A;
+  --white: #FEFEFE;
+  --black: #313733;
+  --night: #385D6A;
+  --font1: 'Playfair Display', serif;
+  --font2: 'Montserrat', sans-serif;
+  --font3: 'Roboto', sans-serif;
+}
