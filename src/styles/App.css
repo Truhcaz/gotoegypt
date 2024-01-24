@@ -1,12 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display&family=Roboto&display=swap');
 
 :root{
-  --bg-color : #DAB284;
+  --bg-color : #d8b188;
+  --bg-color2: #d4a97e;
   --sand: #AD764A;
   --white: #FEFEFE;
   --black: #313733;
-  --night: #385D6A;
-  --font1: 'Playfair Display', serif;
-  --font2: 'Montserrat', sans-serif;
-  --font3: 'Roboto', sans-serif;
+  --night: #122428;
+  --playfair-font: 'Playfair Display', serif;
+  --montserrat-font: 'Montserrat', sans-serif;
+  --roboto-font: 'Roboto', sans-serif;
+  --sm-size: '12px';
+  --m-size: '16px';
+  --big-size: '24px';
+}
+
+.night{
+  color: var(--night);
 }

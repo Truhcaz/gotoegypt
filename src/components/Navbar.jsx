@@ -6,10 +6,12 @@ const StyledNavbar = styled.div`
 
     /* background-color: #313733; */
     color: var(--white);
-    font-family: var(--font1);
+    font-family: var(--playfair-font);
     font-size: 16px;
     padding: 1.5em;
     margin-bottom: 2em;
+    position: fixed;
+    width: 100%;
     ul{
         margin: 0;
         list-style: none;

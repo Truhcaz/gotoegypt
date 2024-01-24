@@ -1,31 +1,46 @@
 import React from "react";
 import styled from "styled-components";
 import Navbar from "./Navbar";
-import sky from "../assets/img/sky.png";
-import desert from "../assets/img/desert4.png";
-import pyramids from "../assets/img/giza_pyramids3.png";
+import sky from "../assets/img/sky2.png";
+import desert from "../assets/img/desert5.png";
+import pyramids from "../assets/img/giza_pyramids5.png";
 import { ReactComponent as DoubleDownChevron } from "../assets/icon/double-down-chevron.svg";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const StyledHero = styled.div`
   height: 100vh;
-  background-color: var(--bg-color);
+  background : transparent;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-   background-image: url(${sky});
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top left;
+  background-image: url(${sky});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
 
   .hero__container {
     text-align: center;
     color: var(--white);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: center;
     margin-bottom: 5vh;
+    position: absolute;
+    top: 15%;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+
+    .hero__content{
+      display: flex;
+      align-items: center;
+    }
 
     .hero__socials {
-      font-family: var(--font3);
+      font-family: var(--roboto-font);
+      font-size: 12px;
       flex-basis: 20%;
       ul {
         padding: 0;
@@ -39,15 +54,16 @@ const StyledHero = styled.div`
     }
 
     .hero__titles {
-      font-family: var(--font1);
+      font-family: var(--playfair-font);
       flex-basis: 60%;
       h3 {
-        font-family: var(--font2);
+        font-family: var(--montserrat-font);
         font-size: 12px;
         color: var(--sand);
         text-transform: uppercase;
         letter-spacing: 3px;
         padding-bottom: 1em;
+        margin-bottom: 1em;
         position: relative;
       }
       h3::after {
@@ -62,6 +78,7 @@ const StyledHero = styled.div`
       h1 {
         color: var(--white);
         font-size: calc(16px + 1vw);
+        margin-bottom: 1em;
       }
 
       .scrolldown__container {
@@ -75,7 +92,7 @@ const StyledHero = styled.div`
           fill: var(--white);
         }
         .scrolldown__text {
-          font-family: var(--font2);
+          font-family: var(--montserrat-font);
           text-transform: uppercase;
           font-size: 10px;
           letter-spacing: 3px;
@@ -84,44 +101,74 @@ const StyledHero = styled.div`
     }
 
     .hero__email {
-      font-family: var(--font3);
+      font-size: 12px;
+      font-family: var(--roboto-font);
       transform: rotate(-90deg);
       flex-basis: 20%;
     }
   }
 
-  .parallax__container {
-    position: relative;
-    flex-grow: 1;
+  .hero__img {
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+  }
 
-    .desert__container {
-      height: 100%;
-      position: relative;
-    }
-    .pyramids {
-      width: clamp(800px, 1000px, 60%);
-      position: absolute;
-      top: 0;
-      right: 50%;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1;
-    }
-    .desert {
-      position: absolute;
-      bottom: 0;
-      z-index: 2;
-      width: 100%;
-      min-width: 900px;
-    }
+  .desert {
+    z-index: 3;
+    background-image: url(${desert});
+    /* transition: transform 1s ease; */
+  }
+  .pyramids {
+    z-index: 2;
+    background-image: url(${pyramids});
+  }
+  .sky {
+    z-index: 1;
+    background-image: url(${sky});
+  }
+
+  .fade__layer {
+    position: absolute;
+    bottom: 0;
+    height: 300px;
+    width: 100%;
+    z-index: 3;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(218, 178, 132, 1) 65%
+    );
   }
 `;
 
 const Hero = () => {
+  
+  const container = useRef(null);
+  const { scrollYProgress: scrollYProgress1 } = useScroll({
+    target: container,
+    offset: ["start 0.5", "0.5 start"],
+  });
+  const { scrollYProgress: scrollYProgress2 } = useScroll({
+    target: container,
+    offset: ["start end", "end start"],
+  });
+
+
+
+  const pyramidParallax = useTransform(scrollYProgress2, [0, 1], ["-50%", "50%"]);
+  const desertParallax = useTransform(scrollYProgress1, [0, 1], ["10%", "-10%"]);
+  const titleParallax = useTransform(scrollYProgress2, [0, 1], ["-100%", "100%"]);
+
   return (
-    <StyledHero>
+    <StyledHero ref={container}>
       <Navbar></Navbar>
-        <div className="hero__container">
+      <motion.div style={{ y: titleParallax }} className="hero__container">
+        <div className="hero__content">
           <div className="hero__socials">
             <ul>
               <li>Fb</li>
@@ -141,14 +188,11 @@ const Hero = () => {
           </div>
           <div className="hero__email">hi@gotoegypt.com</div>
         </div>
-        <div className="parallax__container">
-          <div className="desert__container">
-            <img className="desert" src={desert} alt="desert" />
-            <div className="pyramids__container">
-              <img className="pyramids" src={pyramids} alt="pyramids" />
-            </div>
-          </div>
-        </div>
+      </motion.div>
+      {/* <div className="sky hero__img"></div> */}
+      <motion.div style={{ y: desertParallax }} className="desert hero__img"></motion.div>
+      <motion.div style={{ y: pyramidParallax }} className="pyramids hero__img"></motion.div>
+      <div className="fade__layer"></div>
     </StyledHero>
   );
 };
