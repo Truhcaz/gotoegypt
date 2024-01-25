@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/gotoegypt/static/css/main.1573bdf8.css",
+    "main.js": "/gotoegypt/static/js/main.9cffbdae.js",
+    "static/media/carousel2.png": "/gotoegypt/static/media/carousel2.b9c092cd099a88e243f7.png",
+    "static/media/carousel1.png": "/gotoegypt/static/media/carousel1.b67cc7dbea3ff2a51c21.png",
+    "static/media/desert5.png": "/gotoegypt/static/media/desert5.867d8062c05ca9908dfd.png",
+    "static/media/sky2.png": "/gotoegypt/static/media/sky2.6e848f70c6f4502b5cfe.png",
+    "static/media/camel.png": "/gotoegypt/static/media/camel.2241408392ebd9d4b0ff.png",
+    "static/media/giza_pyramids5.png": "/gotoegypt/static/media/giza_pyramids5.8816145143c4654af3db.png",
+    "static/media/road.png": "/gotoegypt/static/media/road.b6c4db44f09636d85e1c.png",
+    "static/media/carousel3.png": "/gotoegypt/static/media/carousel3.b9f2fea32e0204d2dc29.png",
+    "static/media/tutankhamun.png": "/gotoegypt/static/media/tutankhamun.b914482d73ba950592c6.png",
+    "static/media/anubis.png": "/gotoegypt/static/media/anubis.224ecf00b255d426030f.png",
+    "static/media/lonely-planet.png": "/gotoegypt/static/media/lonely-planet.de3384a5a390a5467058.png",
+    "static/media/bbc.png": "/gotoegypt/static/media/bbc.e67c2be23b24ee071392.png",
+    "static/media/arrow.svg": "/gotoegypt/static/media/arrow.c86fcfd280bb480933e04145f02ed798.svg",
+    "static/media/double-down-chevron.svg": "/gotoegypt/static/media/double-down-chevron.fbfebc5f1b27b644fc097ddf8e4bb7b7.svg",
+    "static/media/play-button.svg": "/gotoegypt/static/media/play-button.bd52324bebba3da6c098c8f353449cff.svg",
+    "index.html": "/gotoegypt/index.html",
+    "static/media/3x3dot-black.svg": "/gotoegypt/static/media/3x3dot-black.03c2f7a481fbf67ad49611470a03291d.svg",
+    "main.1573bdf8.css.map": "/gotoegypt/static/css/main.1573bdf8.css.map",
+    "main.9cffbdae.js.map": "/gotoegypt/static/js/main.9cffbdae.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1573bdf8.css",
+    "static/js/main.9cffbdae.js"
+  ]
+}
