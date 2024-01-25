@@ -10,7 +10,7 @@ const StyledAbout = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1em;
+  padding-top: 2em;
 
   .about__container{
     display: flex;
